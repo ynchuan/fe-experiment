@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>native-js demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    </head>
+    <body>
+        <div class="main-full">
+            <section class="section">
+            <style>
+                .foo{
+                    color:red;
+                }
+            </style>
+            <foo id="foo" class="foo">建设</foo>
+                <div class="wrap">
+                    <div class="d-aside">
+                        <h1 class="h1-tt">组件demo</h1>
+                        <aside class="aside-collapse">
+                        </aside>
+                    </div>
+                    <div class="d-main">
+                        <div class="div-bread">
+                            <a class="a-link  hide" target="_blank" id="link-src">查看源代码</a>
+                            <a class="a-link  hide" target="_blank" id="link-note">查看说明</a>
+                        </div>
+                        <div class="div-main">
+                            this is iframe area!
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <footer class="clear"></footer>
+    </div>
+    <script>
+        var dom = document.getElementById("foo");
+        var cls = dom.className;
+        console.log(cls);
+    </script>
+</body>
+</html>

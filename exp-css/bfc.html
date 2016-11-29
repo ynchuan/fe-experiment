@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>  
+<head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <!--The viewport meta tag is used to improve the presentation and behavior of the samples 
+    on iOS devices-->
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+  <title>bfc1</title>
+
+  <style> 
+    html, body { height: 100%; width: 100%; margin: 0; padding: 0; }
+    #map{
+      padding:0;
+    }
+    .first{
+      margin:20px;
+      background:lightgreen;
+      border: 2px solid lightgreen;
+      /*display:inline-block;*/
+      /*overflow:hidden;*/
+      /*float: left;*/
+      /*position: absolute;*/
+    }
+    ul{
+      overflow:hidden;
+      margin:10px;
+      background:lightblue; 
+       zoom:1;
+    }
+    li{
+     width: 100px;
+      float:left;
+    }
+    .left{
+       float: left;
+       width: 30%;
+       clear:both;
+    }
+    .right{
+      overflow:hidden;
+      zoom:1;
+    }
+  </style> 
+  
+  
+</head> 
+
+<body class="claro"> 
+  <div class="first">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </div>
+  <div class="left">a</div>
+  <div class="right">b</div>
+</body> 
+
+</html>

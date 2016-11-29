@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>  
+<head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <!--The viewport meta tag is used to improve the presentation and behavior of the samples 
+    on iOS devices-->
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+  <title>margin</title>
+
+  <style> 
+    html, body { height: 100%; width: 100%; margin: 0; padding: 0; }
+    #map{
+      padding:0;
+    }
+    .first{
+      margin:20px;
+      background:lightgreen;
+      width:100%;
+      height:100px;
+      display:inline-block
+    }
+    ul{
+      /*display:inline-block;*/
+      margin:10px;
+      background:lightblue;
+    }
+    li{
+      margin:25px;
+    }
+    .per-m-f{
+      width: 300px;
+      border:1px solid #ccc;
+    }
+    .per-m-b{
+      width:200px;
+      border:1px solid red; 
+      margin-left:50%;
+      margin-top:50%;
+      padding-top:50%;
+      padding-left:50%;
+    }
+  </style> 
+  
+  
+</head> 
+<div class="per-m-f">
+  <div class="per-m-b">
+    marign为百分数的时候的参照点:<br>
+    margin为百分数的时候的参考尺寸为父元素的宽度，没有高度值作为参考，大概因为1、高度不易计算获取；2、高度即使获取以后再次设置margin-top|bottom会触发layout->painting
+    http://blog.doyoe.com/2013/11/30/css/margin%E7%B3%BB%E5%88%97%E4%B9%8B%E7%99%BE%E5%88%86%E6%AF%94/
+  </div>
+</div>
+<body class="claro"> 
+  <div class="first"></div>
+  <div class="first"></div>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul> 
+  <div class="first">
+    著作权归作者所有。
+商业转载请联系作者获得授权，非商业转载请注明出处。
+作者：貘吃馍香
+链接：http://www.zhihu.com/question/24563593/answer/28254084
+来源：知乎
+
+Margins of the root element's box do not collapse.（根元素不折叠）If the top and bottom margins of an element with clearance are adjoining, its margins collapse with the adjoining margins of following siblings but that resulting margin does not collapse with the bottom margin of the parent block.（有间隙不折叠）Margins between a floated box and any other box do not collapse (not even between a float and its in-flow children). （浮动不折叠）Margins of elements that establish new block formatting contexts (such as floats and elements with 'overflow' other than 'visible') do not collapse with their in-flow children.（创建BFC与子不折叠）Margins of absolutely positioned boxes do not collapse (not even with their in-flow children).（positioned 不折叠）Margins of inline-block boxes do not collapse (not even with their in-flow children).（inline-box 不折叠）The bottom margin of an in-flow block-level element always collapses with the top margin of its next in-flow block-level sibling, unless that sibling has clearance.（兄弟有间隙不折叠）The top margin of an in-flow block element collapses with its first in-flow block-level child's top margin if the element has no top border, no top padding, and the child has no clearance.（父子间有padding 和 border 不折叠）
+  </div>
+</body> 
+
+</html>
