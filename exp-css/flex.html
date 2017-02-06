@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+        <title>display:flex</title>
+        <style>
+        .main{
+            display: flex;
+            height: 500px;
+        }
+        .main>div{
+            flex:1;
+        }
+        .box3{
+            flex-direction: column;
+            display: flex;
+            align-items:center; //父级设置，子级展示
+            justify-content:center;
+        }
+        .box1,.box2,.box3{
+            border:1px solid #ccc;
+        }
+        .box3>div{
+            flex:1;
+            border:1px solid red;
+        }
+        .box3-3{
+            width: 200px;
+        }
+
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="box1">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </div>
+            <div class="box2">box2</div>
+            <div class="box3">
+                <div class="box3-1">box3-1</div>
+                <div class="box3-2">box3-2</div>
+                <div class="box3-3">box3-3</div>
+            </div>
+        </div>
+        <p>
+            display:flex 子元素使用flex进行空间比例分配；
+            默认方向水平；
+            子元素中高度父级盒子高度一致；
+            若父级没有高度，最高高度作为盒子高度或者和
+                    flex
+flex-grow
+flex-shrink
+flex-basis
+flex-flow
+flex-direction
+flex-wrap
+align-content
+align-items
+align-self
+justify-content
+order
+        </p>
+    </body>
+</html>

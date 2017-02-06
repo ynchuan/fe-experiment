@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+}
+html, body, .page-content {
+    height: 100%;
+}
+.page-content {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.hide {
+    display: none;
+}
+.page-layer {
+    height: 100%;
+}
+
+/**------加载屏--------**/
+.page-loading {
+    background: #000;
+    overflow: hidden;
+}
+.loading-icon {
+    margin-top: 160px;
+    padding-top: 160px;
+    font: 36px 'HelveticaNeue';
+    color: #fff;
+    text-align: center;
+    background: url('./img/loading.gif') no-repeat center 0;
+}
+
+/**------首屏--------**/
+.page-start {
+    background: url('http://img3.cache.netease.com/f2e/ent/ent_painting2016/images/cover_bg.jpg') no-repeat 0 0;
+    background-size: cover;
+}
+
+/**------内容屏--------**/
+.main-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+/**------尾屏--------**/
+.page-end {
+    background: url('http://img3.cache.netease.com/f2e/ent/ent_painting2016/images/backcover.jpg') no-repeat 0 0;
+    background-size: cover;
+}
+
+/**------饰件屏--------**/
+.page-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.d-start {
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    width: 140px;
+    height: 140px;
+    margin-left: -70px;
+    background: url(img/cover.png) -806px 26px;
+}
+.d-start:after {
+    content: '';
+    display: block;
+    height: 140px;
+    background: url(img/cover.png) -670px 0;
+}
+.d-music {
+    position: absolute;
+    top: 45px;
+    right: 40px;
+    width: 140px;
+    height: 100px;
+    background: url(img/music.png) no-repeat;
+}
+
+/**------分享提示屏--------**/
+.page-share {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .6);
+}
+.share-arrow {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 100px;
+    height: 100px;
+    background: url('http://a.hiphotos.baidu.com/fex/pic/item/3bf33a87e950352aa2e7e2775a43fbf2b3118bcf.jpg') no-repeat;
+}

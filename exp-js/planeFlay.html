@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=800,user-scalable=no">
+        <meta name="keywords" content="百度视频">
+        <meta name="description" content="百度视频">
+        <meta name="renderer" content="webkit">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="format-detection" content="email=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="title" content="致每一个回家过年的你">
+        <meta name="description" content="四亿人的过年写照，说不定就有你的影子">
+        <meta name="share-icon" content="http://vs5.bdstatic.com/browse_static/v3/common/widget/video/logo/video_logo_new_6ec3debb.gif">
+        <title>致每一个回家过年的你</title>
+        <link rel="shortcut icon" href="http://gss0.bdstatic.com/5bd1bjqh_Q23odCf/static/wiseindex/img/favicon.ico">
+        <style>
+            .share-arrow {
+                position: absolute;
+                top: 30px;
+                right: 30px;
+                width: 30px;
+                height: 30px;
+                background-color:green;
+                z-index: 3;
+            }
+            html, body, .page-content, .page-pc {
+                height: 100%;
+                margin:0;
+            }
+            .page-content {
+                position: relative;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+            .page-layer {
+                height: 100%;
+                border:1px solid red;
+            }
+            .d-share{
+                background-color: red;
+                position: absolute;
+                left: 15%;
+                bottom: 70px;
+                width: 20px;
+                height: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-content">
+            <div class="page-layer page-share" id="pageShare">
+                <div class="share-arrow" id='id1'></div>
+                <div class="d-share" id='id2'></div>
+            </div>
+        </div>
+        <script src="http://list.video.baidu.com/pc_static/wise/live/zepto.min.js"></script>
+        <script type="text/javascript">
+            var plane = $('#id1');
+            var share = $('#id2');
+            var start = +(new Date);
+            var end = start;
+            var isReach = false;
+            var index = 0;
+            var startPos = share.offset();
+            var endPos = plane.offset();
+            var startX = startPos.left;
+            var startY = startPos.top;
+            var endX = endPos.left;
+            var endY = endPos.top;
+            var sangle = (Math.atan((endX - startX) / (startY - endY))) * 2 + Math.PI;
+            console.log('sangle=' + (sangle / Math.PI * 180));
+            var r = (startY - endY) / Math.sin(sangle);
+            var m = r + startX;
+            var flyFrame = function() {
+                end = +(new Date);
+                if (end - start > 1000) {
+                    start = end;
+                    fly();
+                }
+                if (!isReach) {
+                    requestAnimationFrame(flyFrame);
+                }
+            };
+            var fly = function() {
+                var angle = sangle - index* Math.PI / 180;
+                if (angle < Math.PI) {
+                    isReach = true;
+                }
+                console.log('angle=' + (angle / Math.PI * 180));
+
+                var x = r * Math.cos(angle) + m;
+                var y = r * Math.sin(angle) + startY;
+                move(x, y);
+                index++;
+            };
+
+            var move = function(x, y) {
+                plane.css({
+                    'left': x + 'px',
+                    'top': y + 'px'
+                });
+            };
+            requestAnimationFrame(flyFrame);
+        </script>
+    </body>
+</html>
