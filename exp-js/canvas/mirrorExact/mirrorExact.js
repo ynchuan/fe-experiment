@@ -221,7 +221,7 @@ function MirrorExact() {
     this.init();
 }
 
-MirrorExact.prototype.init = function() {
+MirrorExact.prototype.init = function () {
     this.pageContent = $('#pageContent');
     this.pageLoading = $('#pageLoading');
     this.pageStart = $('#pageStart');
@@ -232,23 +232,23 @@ MirrorExact.prototype.init = function() {
     this.pageColl = $('#pageColl');
     this.initAudio();
     this.initCanvas();
-    this.preLoad().done(function() {
+    this.preLoad().done(function () {
         this.pageLoading.addClass('hide');
         this.pageStart.addClass('active');
         this.draw();
         this.touchEvent();
     });
     var self = this;
-    setTimeout(function() {
+    setTimeout(function () {
         // self.cutPic(self.pageContent);
     }, 1000);
 };
 
-MirrorExact.prototype.initAudio = function() {
+MirrorExact.prototype.initAudio = function () {
     this.audio = document.getElementById('audio');
     this.music = $('#music');
     this.audio.play();
-    this.music.removeClass('d-music-close').on('touchend', function() {
+    this.music.removeClass('d-music-close').on('touchend', function () {
         var $this = $(this);
         if ($this.hasClass('d-music-close')) {
             $this.removeClass('d-music-close');
@@ -260,7 +260,7 @@ MirrorExact.prototype.initAudio = function() {
     });
 };
 
-MirrorExact.prototype.initCanvas = function() {
+MirrorExact.prototype.initCanvas = function () {
     this.w = window.innerWidth;
     this.h = window.innerHeight;
     //切换宽屏
@@ -273,13 +273,13 @@ MirrorExact.prototype.initCanvas = function() {
     this.canvas.setAttribute('height', this.h)
 };
 
-MirrorExact.prototype.preLoad = function() {
+MirrorExact.prototype.preLoad = function () {
     var imgs = this.imgList;
     var len = imgs.length;
     var count = 0;
     var self = this;
-    var doneFun = function() {};
-    var chainFun = function() {
+    var doneFun = function () {};
+    var chainFun = function () {
         count++;
         count === len && doneFun.call(self, self.imgList);
     };
@@ -292,33 +292,33 @@ MirrorExact.prototype.preLoad = function() {
         img.index = m;
         img.name = m;
         img.className = 'img-item';
-        img.onload = function() {
+        img.onload = function () {
             // self.pageColl.append(this);
             chainFun();
         };
-        img.onerror = function() {
+        img.onerror = function () {
             console.log('图片获取失败索引:' + this.index);
             chainFun();
             // self.pageColl.append(this);
         }
     }
     return {
-        done: function(fun) {
+        done: function (fun) {
             doneFun = fun || doneFun;
         }
     }
 };
 
-MirrorExact.prototype.showEnd = function() {
+MirrorExact.prototype.showEnd = function () {
     var self = this;
     this.pageEnd.removeClass('hide');
     this.startBtn.addClass('hide');
-    setTimeout(function() {
+    setTimeout(function () {
         self.pageEnd.addClass('active');
     }, 200);
 };
 
-MirrorExact.prototype.draw = function() {
+MirrorExact.prototype.draw = function () {
     var imglist = this.imgList;
     var idx = this.index;
 
@@ -359,10 +359,10 @@ MirrorExact.prototype.draw = function() {
     }
 };
 
-MirrorExact.prototype.touchEvent = function() {
+MirrorExact.prototype.touchEvent = function () {
     var i = this;
     var self = this;
-    this.startBtn.bind('touchstart', function() {
+    this.startBtn.bind('touchstart', function () {
         var startTime = (new Date).getTime();
         if (!self.isCloseStartPage) {
             self.pageStart.addClass('hide');
@@ -393,12 +393,12 @@ MirrorExact.prototype.touchEvent = function() {
         cancelAnimationFrame(self.timer);
         self.timer = requestAnimationFrame(shrink);
     });
-    this.startBtn.bind('touchend', function() {
+    this.startBtn.bind('touchend', function () {
         cancelAnimationFrame(self.timer);
     });
 };
 
-MirrorExact.prototype.drawImgOversize = function(img, imgw, imgh, areaw, areah, areal, areat, radio) {
+MirrorExact.prototype.drawImgOversize = function (img, imgw, imgh, areaw, areah, areal, areat, radio) {
     // 绘制背景图
     this.ctx.drawImage(
         img,
@@ -410,11 +410,11 @@ MirrorExact.prototype.drawImgOversize = function(img, imgw, imgh, areaw, areah, 
         0,
         750,
         1206);
-     console.log(areaw / radio);
-     console.log(radio);
+    console.log(areaw / radio);
+    console.log(radio);
 };
 
-MirrorExact.prototype.drawImgMinisize = function(img, cimgw, cimgh, imgw, imgh, areaw, areah, areal, areat, radio) {
+MirrorExact.prototype.drawImgMinisize = function (img, cimgw, cimgh, imgw, imgh, areaw, areah, areal, areat, radio) {
     // 绘制前贴片图
     this.ctx.drawImage(
         img,
@@ -427,7 +427,7 @@ MirrorExact.prototype.drawImgMinisize = function(img, cimgw, cimgh, imgw, imgh, 
         750 * radio,
         1206 * radio);
 };
-MirrorExact.prototype.cutPic = function(dom) {
+MirrorExact.prototype.cutPic = function (dom) {
     // 绘制前贴片图
     // this.ctx.drawImage(
     //     dom,
@@ -442,7 +442,7 @@ MirrorExact.prototype.cutPic = function(dom) {
     html2canvas(dom, {
         allowTaint: true,
         taintTest: false,
-        onrendered: function(canvas) {
+        onrendered: function (canvas) {
             canvas.id = "mycanvas";
             //document.body.appendChild(canvas);
             //生成base64图片数据
@@ -454,20 +454,20 @@ MirrorExact.prototype.cutPic = function(dom) {
     });
 };
 
-MirrorExact.prototype.initPageEvent = function() {
+MirrorExact.prototype.initPageEvent = function () {
     $('.share_btn').hide();
     document.addEventListener('touchmove', i, !1);
     document.addEventListener('touchstart', i, !1);
-    $('.reload').bind('touchstart', function() {
+    $('.reload').bind('touchstart', function () {
         window.location.reload()
     });
-    $('.share_btn').bind('touchend', function() {
+    $('.share_btn').bind('touchend', function () {
         h5Share.share()
     });
-    $('.tie').bind('touchend', function() {
+    $('.tie').bind('touchend', function () {
         window.location.href = this.href
     });
-    $('.review').bind('touchend', function() {
+    $('.review').bind('touchend', function () {
         window.location.href = this.href
     });
 };

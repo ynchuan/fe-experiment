@@ -35,7 +35,14 @@
 		<div class="namet">hellp1</div>
 	</div>
 	<span></span>
-
+	<div id="inputtest">
+		<input type="text">
+		<select name="x" id="">
+			<option value="s">w</option>
+			<option value="s">s</option>
+			<option value="s">p</option>
+		</select>
+	</div>
 
 	<p></p>
 	<!-- <div id="test1" class="name">display1</div> -->
@@ -43,7 +50,13 @@
 	<!-- <div id="test2" class="name" style='display: hidden'>hidden</div> -->
 	<input type="text" value="text test">
 	<script type="text/javascript" src="jquery.js"></script>
-
+	<script type="text/javascript">
+		 
+		$('#inputtest').on('keydown change','*',function(e){
+			var $this = $(this);
+			console.log($this.val());
+		});
+	</script>
 	<script type="text/javascript">
 		var cl=jQuery(".name");
 		var nt=jQuery(".namet");

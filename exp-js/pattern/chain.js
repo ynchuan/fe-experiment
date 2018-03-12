@@ -27,12 +27,12 @@ Chain.prototype.setNextChain = function(nc) {
 }
 
 Chain.prototype.startChain = function() {
-		this.fn.apply(this, arguments);
-		this.nextChain && this.nextChain.startChain(arguments);
-		// this.fn.apply(this);//实现调用回路
+	this.fn.apply(this, arguments);
+	this.nextChain && this.nextChain.startChain(arguments);
+	// this.fn.apply(this);//实现调用回路
+}
 
-	}
-	//main
+//main
 // var fnc1 = new Chain(fn1),
 // 	fnc2 = new Chain(fn2),
 // 	fnc3 = new Chain(fn3);
@@ -43,7 +43,7 @@ Chain.prototype.startChain = function() {
 Function.prototype.after = function(fn) {
 	var self = this;
 	return function() {
-		var ret = self.apply(this, arguments);//AOP实现责任链，通过方法递归实现责任链
+		var ret = self.apply(this, arguments); //AOP实现责任链，通过方法递归实现责任链
 		fn.apply(this, arguments);
 		return ret;
 	}

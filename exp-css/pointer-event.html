@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8" />
+<title>pointer-events_CSS参考手册_web前端开发参考手册系列</title>
+<meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+<style>
+a[href="http://example.com"] {
+    pointer-events: none;
+}
+.test{
+        pointer-events: auto;
+}
+</style>
+</head>
+<body>
+<ul>
+    <li><a href="https://developer.mozilla.org/">MDN</a></li>
+    <li><a href="http://example.com"><span class='test'>一个不能点击的链接</span></a></li>
+    自身不能成为target，但是子元素可以冒泡使其激活。继承。
+</ul>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>test</title>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="js/chunk.js"></script>
+        <script type="text/javascript">
+            getUniqueRandomValue(5,10,2);
+        </script>
+    </head>
+    <body>
+        <div class="d-1">
+            1
+            <div class="d-2">
+                2
+                <div class="div-3">3</div>
+            </div>
+            <div class="d-2-1">
+                4
+                <div class="d-3-1">5</div>
+                <div class="d-3-2">6</div>
+            </div>
+        </div>
+        <script>
+            // document.querySelectorAll('*').forEach(function(item,i){
+            //     console.log(i);
+            //     console.log(item);
+            //     debugger;
+            //     item.parentNode.removeChild(item);
+            // })
+            var dom = document.querySelectorAll('.d-1');
+            for (var key in dom ){
+                debugger;
+                console.log(key);
+            }
+
+            var obj = {};
+
+            Object.defineProperty(obj,'name',{
+                value:'hello',
+                writable:true,
+                enumerable:true,
+                configurable:true
+            });
+            var p = '';
+            Object.defineProperty(obj,'title',{
+                get:function(){
+                    return p;
+                },
+                set:function(p1){
+                    p = p1;
+                },
+                enumerable:true,
+                configurable:true
+            });
+
+
+        </script>
+    </body>
+</html>

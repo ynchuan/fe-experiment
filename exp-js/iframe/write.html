@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>write</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>test iframe inner height auto adapter</h1>
+        <iframe src="index.html" frameborder="0"></iframe>
+        <script>
+            document.write('hello');
+            document.write("<script> console.log('2 after'); <\/script>"); //写完后就执行，然后继续执行后面的脚本
+            console.log('1 script');
+            // 执行结果：
+            // 2 after
+            // 1 script
+        </script>
+    </body>
+</html>

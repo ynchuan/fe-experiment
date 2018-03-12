@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>三列布局，中间居中、且固定大小为500px，左右自适应</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="renderer" content="webkit">
+        <style>
+        .wrap{
+            display: table;
+            width:100%;
+        }
+        .cell{
+            display: table-cell;
+            border:1px solid #ccc;
+            column-width: 100px; // 平分比例
+        }
+        .middle{
+            width:500px;
+        }
+
+        .wrap1{
+            display: flex;
+            width:100%;
+        }
+        .cell1 {
+            flex: 1 1 0;
+        }
+        .middle1 {
+            flex: 0 1 500px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class='wrap'>
+            <div class='cell left'> left</div>
+            <div class='cell middle'> middle </div>
+            <div class='cell right'> right </div>
+        </div>
+        <p>table width = 100% 时，left宽度计算方法：left字符宽度/right字符真实渲染宽度 * （main width - 500）</p>
+        <div class='wrap1'>
+            <div class='cell1 left1'> left</div>
+            <div class='cell1 middle1'> middle </div>
+            <div class='cell1 right1'> right </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <style>
+            .wrap2{
+
+            }
+            .left2{
+                float: left;
+            }
+            .middle2{
+                
+            }
+        </style>
+        <div class='wrap2'>
+            <div class='cell2 left2'> left</div>
+            <div class='cell2 middle2'> middle </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- <style>
+            #main {
+                float: left;
+                width: 100%;
+            }
+            #mainContainer {
+                margin: 0 230px;
+                height: 200px;
+                background: green;
+            }
+            #left {
+                float: left;
+                margin-left: -100%;
+                width: 230px
+            }
+            #right {
+                float: left;
+                margin-left: -230px;
+                width: 230px;
+            }
+            #left .inner, #right .inner {
+                background: orange;
+                margin: 0 10px;
+                height: 200px;
+            }
+        </style>
+        <div id="main">
+            <div id="mainContainer">main content</div>
+        </div>
+        <div id="left">
+            <div id="leftContainer" class="inner">left content</div>
+        </div>
+        <div id="right">
+            <div id="rightContainer" class="inner">right</div>
+        </div> -->
+        <style>
+            #left, #right {
+                float: left;
+                margin: 0 0 0 -271px;
+                width: 50%;
+            }
+            #main {
+                width: 540px;
+                float: left;
+                background: green;
+            }
+            .inner {
+                padding: 20px;
+            }
+            #left .inner, #right .inner {
+                margin: 0 0 0 271px;
+                background: orange;
+            }
+        </style>
+        <div id="left">
+            <div class="inner">this is left sidebar content</div>
+        </div>
+        <div id="main">
+            <div class="inner">this is main content</div>
+        </div>
+        <div id="right">
+            <div class="inner">this is right siderbar content</div>
+        </div>
+    </body>
+</html>

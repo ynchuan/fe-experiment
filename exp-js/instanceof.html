@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>instanceof</title>
+        <meta http-equiv="Content-Type"content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible"content="IE=edge,chrome=1"/>
+        <meta name="renderer"content="webkit">
+    </head>
+    <body>
+        <script>
+            function Cat(){
+                this.name='cat';
+            }
+            function Dog(){
+                this.name='dog';
+            }
+            var cat = new Cat;
+            var dog = new Dog;
+
+            Dog.prototype = Cat.prototype;
+
+            if(cat instanceof Dog){
+                console.info(true);
+            }
+            else {
+                console.info(false);
+            }
+
+            function checkInstanceOf(obj,fun) {
+                var proto= obj;
+                while (proto.__proto__) {
+                    if(proto.__proto__ === fun.prototype){
+                        return true;
+                    }
+                    proto=proto.__proto__;
+                }
+                return false;
+            }
+            checkInstanceOf(cat,Cat);
+
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vue 测试实例)</title>
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div class="d-wrap" v-on:increment="incrementOuter" >
+                <div>hh</div>
+                <input v-model="ss">
+                <input v-bind:value="ss" v-on:input="ss=$event.target.value">
+                <child attr-test=1 :message="message" v-on:click.native="incrementTotle" ref="refChild">
+                    cherry up!
+                    {{message1}}来自父作用域
+                    <span slot='hha'>{{message1}}来自父作用域，我是hha插槽</span>
+                    <template scope="props" slot='tmpl'>
+                        {{props.hello}}
+                        {{props.attrT}}
+                    </template>
+                    <subchild :tt="childName"></subchild>
+                </child>
+                <async-example/>
+            </div>
+        </div>
+        <p><br><br><br><br>
+            组件上绑定的事件一般是用来跟子组件进行通信使用，如果添加一些浏览器事件并用native修饰，可以实现在子组件上添加事件，否则不会触发，除非子组件内部触发 
+            <br>
+            一个组件的 v-model 是 value 属性和 input 事件 的合集，可以在子组件中通过model使用prop+event进行设置，实现value+input的变更
+            <br>
+            子组件中包裹的{{message1}}来自父作用域，可以通过slot -:props属性配合template修改父组件中的属性作用域为子组件
+        </p>
+        <script>
+            Vue.component('async-example', function (resolve, reject) {
+                setTimeout(function () {
+                    // Pass the component definition to the resolve callback
+                    resolve({
+                      template: '<div>I am async!</div>'
+                    });
+                }, 1000);
+            });
+            var tt =  new Vue({
+                el: '#app',
+                data: {
+                    message1: 'Hello Vue.js!', 
+                    message: '<h1>菜鸟教程</h1>',
+                    ss:'jiayou',
+                    childName:'ssds'
+                },
+                methods:{
+                    incrementTotle:function(data){
+                        alert(this.message1);
+                        alert(this.$refs.refChild.childName);
+                    },
+                    incrementOuter:function(data){
+                        alert('jiahse');
+                    },
+                },
+                components:{
+                    child:{
+                        data:function(){
+                            return {
+                                childName:"lili"
+                            }
+                        },
+                        props:['message','attrTest'],
+                        template:'<p v-on:click="clickListen">this is p tag {{message}} --- {{attrTest}} <slot name="hha"></slot><slot></slot> <slot name="tmpl" hello="jiayoujia" :attrT="attrTest"></slot></p>',
+                        methods:{
+                            clickListen:function(e){
+                                this.$emit('click','hha');// 该处并未触发父层方法，父层方法的触发是因为原生事件的触发
+                            }
+                        },
+                        components:{
+                            
+                        }
+                    },
+                    subchild:{
+                        props:['tt'],
+                        template:'<h1>{{childName}}</h1>'
+                    }
+                },
+            });
+            
+        </script>
+    </body>
+</html>

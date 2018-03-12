@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="renderer" content="webkit">
+        <title>拖拽实现</title>
+        <style>
+            .wrap{
+                width:1000px;
+                margin:0 auto;
+                border:1px solid #ccc;
+            }
+            .main{
+                position: relative;
+                height: 200px;
+            }
+            .drag-item{
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                background: #eee;
+                cursor: move;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page" id='page'>
+            <div class="wrap">
+                <div class="main" id='main'>
+                    <div class="drag-item"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var $main = document.getElementById('main');
+            var offL = $main.offsetLeft;
+            var offT = $main.offsetTop;
+            var $item = $main.getElementsByClassName('drag-item')[0];
+            $item.addEventListener('mousedown',function(e){
+                var x = e.pageX;
+                var y = e.pageY;
+            },false);
+
+        </script>
+    </body>
+</html>

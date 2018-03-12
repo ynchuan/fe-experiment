@@ -73,7 +73,7 @@
 	</head>
 	
 	<body>
-		<div id="box1">box1 是绝对定位（层级为“Z-index: 0”级）<div class="ab">1</div></div>
+		<!-- <div id="box1">box1 是绝对定位（层级为“Z-index: 0”级）<div class="ab">1</div></div>
 		<div id="box2"> box2 opacity: .9;只是创建层级上下文，并不存在定位属性<div class="ab">2</div></div>
 		<div id="box3"> box3 正常流</div>
 		<br>
@@ -87,5 +87,58 @@
 				<div id="absolute"> transform  transform  创   建    了局    部层叠上下文，absolute 的包含块不再是 relative 而是 transform 了</div>
 			</div>
 		</div>
+ -->
+		<style type="text/css">
+			.box{
+				font-size: 0;
+				overflow: hidden;
+				line-height: 220px;
+			}
+			.box li{
+				float: right;
+				margin-left:-20px; 
+			}
+			.sbox{
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.sbox:hover{
+				position: relative;
+				z-index: 1;
+			}
+		</style>
+		<ul class="box">
+			<li><div class="sbox" style="width:100px;height:100px;background-color:#f00;"></div><i></i></li>
+			<li><div class="sbox" style="width:150px;height:150px;background-color:#0f0;"></div><i></i></li>
+			<li><div class="sbox" style="width:120px;height:120px;background-color:#00f;"></div><i></i></li>
+			<li><div class="sbox" style="width:50px;height:50px;background-color:#993;"></div><i></i></li>
+			<li><div class="sbox" style="width:200px;height:200px;background-color:#f0f;"></div><i></i></li>
+		</ul>
+
+		<style type="text/css">
+			.box1{
+				font-size: 0;
+				overflow: hidden;
+				line-height: 220px;
+				direction: rtl;
+			}
+			.box1 li{
+				display: inline-block;
+				margin-left:-20px;
+				vertical-align: middle;
+				position: relative;
+			} 
+			.sbox1:hover{
+				position: relative;
+				z-index: 1;
+			}
+		</style>
+		<ul class="box1">
+			<li><div class="sbox1" style="width:100px;height:100px;background-color:#f00;"></div><i></i></li>
+			<li><div class="sbox1" style="width:150px;height:150px;background-color:#0f0;"></div><i></i></li>
+			<li><div class="sbox1" style="width:120px;height:120px;background-color:#00f;"></div><i></i></li>
+			<li><div class="sbox1" style="width:50px;height:50px;background-color:#993;"></div><i></i></li>
+			<li><div class="sbox1" style="width:200px;height:200px;background-color:#f0f;"></div><i></i></li>
+		</ul>
 	</body>
 </html>

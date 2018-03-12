@@ -1,0 +1,29 @@
+<html>
+
+<body>
+    <script type="text/javascript">
+    function fetch(opt) {
+        var myIframe = document.createElement('iframe');
+        myIframe.style.display = 'none';
+        document.body.appendChild(myIframe);
+        myIframe.src = opt.url;
+        myIframe.onload = function() {
+            myIframe.src = opt.domainProxy;
+            myIframe.onload = function() {
+                var name = myIframe.contentWindow.name;
+                opt.succ && opt.succ(name);
+                document.body.removeChild(myIframe);
+            };
+        }
+    }
+    fetch({
+        url: 'http://wxx.v.baidu.com:8080/crossDomain/winNameData.html',
+        domainProxy: './winName.html',
+        succ: function(data) {
+            alert(data);
+        }
+    });
+    </script>
+</body>
+
+</html>

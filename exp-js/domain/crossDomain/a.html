@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <script>
+    document.domain = "v.baidu.com";
+
+    function a() {
+        alert("p");
+    }
+    </script>
+</head>
+
+<body>
+    <iframe src="http://wxx.v.baidu.com:8080/crossDomain/b.html" id="i">
+    </iframe>
+    <script>
+    document.getElementById('i').onload = function() {
+        var d = document.getElementById('i').contentWindow;
+        d.aa();
+
+    };
+    </script>
+</body>
+
+</html>

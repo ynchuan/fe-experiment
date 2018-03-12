@@ -21,7 +21,10 @@ Promise.prototype.resolve = function() {
     return function(data) {
         self.status = true;
         for (var i = 0; i < self.succCbks.length; i++) {
-            self.succCbks[i].call(null, data);
+            var tmp =self.succCbks[i].call(null, data);
+            if(tmp){
+                data = tmp;
+            }
         }
         self.all(data);
     }

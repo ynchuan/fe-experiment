@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Css Selector Specificity</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style>
+        section>.test {
+            background: green;
+        }
+
+        div.test {
+            background: blue;
+        }
+
+        div:hover {
+            background: red;
+        }
+
+        section>[data-a] {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="test-wrap">
+        <div id="test" class='test' data-a>伪类=普通类选择器=属性 权重一样，关系选择器如+>并不能增加权重，</div>
+    </section>
+</body>
+
+</html>

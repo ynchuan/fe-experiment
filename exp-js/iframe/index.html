@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>test</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>test iframe inner height auto adapter</h1>
+        <iframe src="/iframe.js" frameborder="0"></iframe>
+        <a href="http://v.baidu.com" target='_blank'>hhhhhh</a>
+        <script>
+            // 跨域iframe通信方式1：
+            if (window.addEventListener) {
+                window.addEventListener("message", function (evt) {
+                    var data = evt.data;
+                    alert('0-'+data);
+                }, false);
+            }
+            else {
+                window.attachEvent("onmessage", function (evt) {
+                    var data = evt.data;
+                    alert('1-'+data);
+                });
+            }
+        //跨域iframe通信方式2：
+        document.addEventListener('click',function(){debugger;
+            var height=window.location.hash.match(/height=(\d+)/)[1]
+            var iframe = document.getElementById('videoIframe');
+            iframe.style.height=height+'px';
+        });
+        </script>
+    </body>
+</html>
