@@ -6,6 +6,8 @@
 
 /* global __inline */
 
+
+
 var HoverPlayer = function($dom, opt) {
     this.opt = opt;
     this.playerTmpl = __inline('./player.tmpl');
