@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>layouts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style>
+    .wrap {
+        margin: 10px auto;
+        width: 800px;
+    }
+
+    .h2 {
+        background: #ccc;
+        padding-left: 10px;
+        font-size: 16px;
+        line-height: 30px;
+        margin-top: 10px 0;
+    }
+    </style>
+</head>
+
+<body>
+    <section class="section s1">
+        <h2 class="h2">table</h2>
+        <div class="wrap">
+            <table class="table">
+                <tr>
+                    <td class="col-4 c1">1</td>
+                    <td class="col-4 c2">2</td>
+                    <td class="col-4 c3">3</td>
+                    <td class="col-4 c4">4</td>
+                </tr>
+                <tr>
+                    <td class="col-4 c5" colspan="2">5</td>
+                    <td class="col-4 c6" colspan="2">6</td>
+                </tr>
+                <tr>
+                    <td class="col-4 c2">7</td>
+                    <td class="col-4 c3">8</td>
+                </tr>
+                <tr>
+                    <td class="col-4 c2" rowspan="2">9</td>
+                    <td class="col-4 c3">9</td>
+                </tr>
+            </table>
+        </div>
+        <style>
+        .s1 .table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .s1 .col-4 {
+            width: 25%;
+            height: 30px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        </style>
+    </section>
+    <section class="section s2">
+        <h2 class="h2">inline-block</h2>
+        <div class="wrap">
+            <div class="col-4 c1">1</div>
+            <div class="col-4 c2">2</div>
+            <div class="col-4 c3">3</div>
+            <div class="col-4 c4">4</div>
+            <div class="col-4 c5">5</div>
+            <div class="col-4 c6">6</div>
+        </div>
+        <style>
+        .s2 .col-4 {
+            display: inline-block;
+            *display: inline;
+            *zoom: 1; //ie6、7hack
+            width: 25%;
+            height: 30px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .s2 .wrap {
+            font-size: 0px;
+        }
+        </style>
+    </section>
+    <section class="section s3">
+        <h2 class="h2">float</h2>
+        <div class="wrap">
+            <div class="col-4 c1">1</div>
+            <div class="col-4 c2">2</div>
+            <div class="col-4 c3">3</div>
+            <div class="col-4 c4">4</div>
+            <div class="col-4 c5">5</div>
+            <div class="col-4 c6">6</div>
+            <div class="clear">dgdgdg</div>
+        </div>
+        <style>
+        .s3 .col-4 {
+            float: left;
+            width: 25%;
+            height: 30px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        </style>
+    </section>
+    <section class="section s4">
+        <h2 class="h2">flex</h2>
+        <div class="wrap">
+            <div class="col-4 c1">1</div>
+            <div class="col-4 c2">2</div>
+            <div class="col-4 c3">3</div>
+            <div class="col-4 c4">4</div>
+        </div>
+        <div class="wrap">
+            <div class="col-4 c5">5</div>
+            <div class="col-4 c6">6</div>
+        </div>
+        <style>
+        .s4 .wrap {
+            display: flex;
+        }
+
+        .s4 .col-4 {
+            height: 30px;
+            border: 1px solid #ccc;
+            flex: 1;
+        }
+        </style>
+    </section>
+    <section class="section s5">
+        <h2 class="h2">float margin</h2>
+        <div class="wrap">
+            <div class="hLeft">left</div>
+            <div class="hRight">right</div>
+        </div>
+        <style>
+        .s5 .hLeft {
+            float: left;
+            border: 1px solid #ccc;
+            width: 15%;
+            height: 50px;
+        }
+
+        .s5 .hRight {
+            height: 50px;
+            border: 1px solid #ccc;
+            margin-left: 15%;
+        }
+        </style>
+    </section>
+    <section class="section s6">
+        <h2 class="h2">float overflow</h2>
+        <div class="wrap">
+            <div class="hLeft">left</div>
+            <div class="hRight">right</div>
+        </div>
+        <style>
+        .s6 .wrap {
+            overflow: hidden;
+        }
+
+        .s6 .hLeft {
+            float: left;
+            border: 1px solid #ccc;
+            width: 15%;
+            height: 90px
+        }
+
+        .s6 .hRight {
+            overflow: hidden;
+            zoom: 1;
+            height: 50px;
+            border: 1px solid #ccc;
+        }
+        </style>
+    </section>
+    <section class="section s7">
+        <h2 class="h2">absolute</h2>
+        <div class="wrap">
+            <div class="hLeft">left</div>
+            <div class="hRight">right</div>
+        </div>
+        <style>
+        .s7 .wrap {
+            position: relative;
+        }
+
+        .s7 .hLeft {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 15%;
+            height: 50px;
+            border: 1px solid #ccc;
+        }
+
+        .s7 .hRight {
+            height: 50px;
+            border: 1px solid #ccc;
+            margin-left: 15%;
+        }
+        </style>
+    </section>
+</body>
+
+</html>

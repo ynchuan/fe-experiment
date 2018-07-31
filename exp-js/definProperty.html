@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>defineProperty</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <script>
+    let ret = { name: 'shengjiayue' };
+    let obj = {};
+    Object.defineProperty(obj, 'name', {
+        get() {
+            console.log('get ' + ret.name);
+            return ret.name;
+        },
+        set(val) {
+            ret.name = val;
+            console.log('set ' + val);
+        }
+    });
+    obj.name = 'zhangsan';
+    obj.name;
+    Object.assign(obj, {
+        name: 'lisi'
+    });
+    </script>
+</body>
+
+</html>

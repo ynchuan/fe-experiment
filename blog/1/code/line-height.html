@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>高度是如何渲染的</title>
+    <meta charset='utf-8' />
+    </style>
+    <style>
+    ul,
+    li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .wrap {
+        width: 1000px;
+        margin: 0 auto;
+        outline: 1px solid #eee;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+
+    .article {
+        line-height: 80px;
+    }
+
+    .only-inline {}
+
+    .only-inline .sp-line-1 {
+        outline: 1px solid red;
+    }
+
+    .only-inline .sp-line-2 {
+        outline: 1px solid green;
+    }
+
+    .both-inline-block .sp-line-1 {
+        outline: 1px solid red;
+    }
+
+    .both-inline-block .sp-line-2 {
+        outline: 1px solid green;
+        display: inline-block;
+    }
+
+    .li-line-height {
+        outline: 1px solid red;
+        margin: 0 5px;
+    }
+    </style>
+</head>
+
+<body class="demo">
+    <div class="header">
+        <div class="wrap">
+            <h1>高度是如何渲染的？</h1>
+        </div>
+    </div>
+    <div class="section">
+        <div class="article article-main">
+            <div class="wrap">
+                <div class="main-aside">
+                </div>
+                <div class="main-content">
+                    <ul class="demo-ul-arts">
+                        <li class="demo-li-art">
+                            <a href="#" class="a-main-art">
+                                <img src="#" alt="" class="img-main-art">
+                                <strong class="str-main-dur"></strong>
+                                <h2 class="h2-main-art"></h2>
+                                <p class="p-main-art"></p>
+                            </a>
+                        </li>
+                        <li class="demo-li-art"></li>
+                        <li class="demo-li-art"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="article article-line-height">
+            <div class="wrap">
+                <h2>line-height</h2>
+                <h3>only inline</h3>
+                <ul class="ul-line-heights only-inline">
+                    <li class="li-line-height">
+                        z
+                        <span class="sp-line-1" style='line-height: 10'>x</span>
+                        <span class="sp-line-1" style='font-size:40px'>x</span>
+                        <span style='font-family: monospace;'>龘</span>
+                    </li>
+                    <li class="li-line-height">
+                        z
+                        <span class="sp-line-1">x</span>
+                        <span class="sp-line-2">z</span>
+                    </li>
+                    <li class="li-line-height">
+                        <span class="sp-line-1" style='line-height: 100px'>x</span>
+                        <span class="sp-line-2" style='line-height: 150px'>z</span>
+                    </li>
+                </ul>
+                <h3>inline & block</h3>
+                <ul class="ul-line-heights  both-inline-block">
+                    <li class="li-line-height">
+                        z
+                        <span class="sp-line-1">x</span>
+                    </li>
+                    <li class="li-line-height">
+                        z
+                        <span class="sp-line-1">x</span>
+                        <span class="sp-line-2">z</span>
+                    </li>
+                    <li class="li-line-height">
+                        <span class="sp-line-1" style='line-height: 100px'>x</span>
+                        <span class="sp-line-2" style='line-height: 150px'>z</span>
+                    </li>
+                    <li class="li-line-height">
+                        <span class="sp-line-1">x</span>
+                        <span class="sp-line-2" style='width:10px;height:10px;background-color: yellow'></span>
+                    </li>
+                    <li class="li-line-height">
+                        <span class="sp-line-1" style='line-height: 100px'>x</span>
+                        <span class="sp-line-2" style='width:10px;height:10px;background-color: yellow'></span>
+                        <span class="sp-line-2" style='width:100px;height:100px;background-color: yellow'></span>
+                    </li>
+                    <li class="li-line-height">
+                        <span class="sp-line-1" style='line-height: 100px'>x</span>
+                        <span class="sp-line-2" style='width:10px;height:10px;background-color: yellow'></span>
+                        <span class="sp-line-2" style='width:100px;height:100px;background-color: yellow'>x</span>
+                    </li>
+                    <li class="li-line-height">
+                        <span class="sp-line-1" style='line-height: 100px'>x</span>
+                        <span class="sp-line-2" style='width:10px;height:10px;background-color: yellow'></span>
+                        <span class="sp-line-2" style='width:100px;height:100px;background-color: yellow'></span>
+                        <span class="sp-line-2" style='width:100px;height:100px;background-color: yellow'>x</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="article article-vertical-align">
+            <div class="wrap">
+                <h2>vertical-align</h2>
+                <h3>only-inline</h3>
+                <ul class="ul-line-heights  only-inline">
+                    <li class="li-line-height">
+                        z
+                        <span class="sp-line-1">x</span>
+                    </li>
+                    <li class="li-line-height">
+                        z
+                        <span class="sp-line-1">x</span>
+                        <span class="sp-line-2" style="vertical-align: text-bottom;">z</span>
+                    </li>
+                    <li class="li-line-height">
+                        <span class="sp-line-1">x</span>
+                        <span class="sp-line-2" style="vertical-align: top;">z</span>
+                    </li>
+                    <li class="li-line-height">
+                        <span class="sp-line-1">x</span>
+                        <span class="sp-line-2" style="line-height: 160px;vertical-align: top;">z</span>
+                    </li>
+                </ul>
+                <h3>inline & block</h3>
+                <ul class="ul-line-heights  both-inline-block">
+                    <li class="li-line-height">
+                        z
+                        <span class="sp-line-1">x</span>
+                    </li>
+                    <li class="li-line-height">
+                        z
+                        <span class="sp-line-1">x</span>
+                        <span class="sp-line-2">z</span>
+                    </li>
+                    <li class="li-line-height">
+                        <span class="sp-line-1">x</span>
+                        <span class="sp-line-2" style='width:10px;height:10px;background-color: yellow'></span>
+                    </li>
+                    <li class="li-line-height">
+                        <span class="sp-line-1" style='line-height: 100px'>x</span>
+                        <span class="sp-line-2" style='width:10px;height:10px;background-color: yellow'></span>
+                        <span class="sp-line-2" style='width:100px;height:100px;background-color: yellow'></span>
+                    </li>
+                    <li class="li-line-height">
+                        <span class="sp-line-1" style='line-height: 100px'>x</span>
+                        <span class="sp-line-2" style='width:10px;height:10px;background-color: yellow'></span>
+                        <span class="sp-line-2" style='width:100px;height:100px;background-color: yellow'>x</span>
+                    </li>
+                    <li class="li-line-height">
+                        <span class="sp-line-1" style='line-height: 100px'>x</span>
+                        <span class="sp-line-2" style='width:10px;height:10px;background-color: yellow'></span>
+                        <span class="sp-line-2" style='width:100px;height:100px;background-color: yellow'></span>
+                        <span class="sp-line-2" style='width:100px;height:100px;background-color: yellow'>x</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="wrap">
+            footer
+        </div>
+    </div>
+</body>
+
+</html>

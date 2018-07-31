@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>log test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+</head>
+
+<body>ss
+    <script>
+    var debugLog = function(i) {
+        var img = new Image;
+        img.src = `http://pc.videoclick.baidu.com/u.gif?&state=logTest&position=PCfrontvideo&li=${i}&t=${+new Date}`;
+    };
+    var i = 0;
+    while (i < 10) {
+        i++;
+        debugLog(i);
+    }
+    </script>
+</body>
+
+</html>

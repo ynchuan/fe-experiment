@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>outer</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <h1 id='test'>inner && outer fun invoke test</h1>
+    <iframe src="./funInner.html" frameborder="0" id='frame'></iframe>
+    <script>
+    window.getOuter=function(){
+        var h1 = document.getElementById('test');
+        console.log(h1.textContent);
+    };
+    setTimeout(() => {
+        var $frame = document.getElementById('frame');
+        var fW = $frame.contentWindow;
+        window.pfn= fW.getInner;
+        window.pfn();
+    }, 1000);
+    </script>
+</body>
+
+</html>

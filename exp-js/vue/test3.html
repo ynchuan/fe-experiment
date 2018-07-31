@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例)</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click='setMessage'>+1</button>
+        <h3>{{count}}</h3>
+        <h3>{{getMsgLength}}</h3>
+        <button @click='destroyVm'>销毁实例</button>
+        <blog-post>
+            <h1 slot="header">
+                About Me
+            </h1>
+            <p>
+                Here's some page content, which will be included in vm.$slots.default, because it's not inside a named slot.
+            </p>
+            <p slot="footer">
+                Copyright 2016 Evan You
+            </p>
+            <p>If I have some content down here, it will also be included in vm.$slots.default.</p>.
+        </blog-post>
+    </div>
+    <script>
+    let target = {
+        $data: {}
+    };
+    Object.defineProperty(target, 'name', {
+        get() {
+            console.log('get name');
+            return target.$data.name;
+        },
+        set(val) {
+            console.log(val);
+            target.$data.name = val;
+        }
+    });
+    target.name = 'ynchuan';
+    console.log(target.name);
+
+    const instance = new Vue({
+        el: '#app',
+        data: {
+            count: 5,
+            message: "this is a test"
+        },
+        components: {
+            'blog-post': {
+                render(createElement) {
+                    var header = this.$slots.header
+                    var body = this.$slots.default
+                    var footer = this.$slots.footer
+                    return createElement('div', [
+                        createElement('header', header),
+                        createElement('main', body),
+                        createElement('footer', footer)
+                    ])
+                }
+            }
+        },
+        computed: {
+            getMsgLength() {
+                return this.message.length;
+            }
+        },
+        methods: {
+            setMessage() {
+                this.message += this.count++;
+            },
+            destroyVm(){
+                this.$destroy();
+            }
+        },
+        beforeCreate() {
+            console.group('beforeCreate 创建前状态===============》');
+            console.log("%c%s", "color:red", "el     : " + this.$el); //undefined
+            console.log("%c%s", "color:red", "data   : " + this.$data); //undefined
+            console.log("%c%s", "color:red", "message: " + this.message)
+        },
+        created() {
+            console.group('created 创建完毕状态===============》');
+            console.log("%c%s", "color:red", "el     : " + this.$el); //undefined
+            console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化
+            console.log("%c%s", "color:red", "message: " + this.message); //已被初始化
+        },
+        beforeMount() {
+            console.group('beforeMount 挂载前状态===============》');
+            console.log("%c%s", "color:red", "el     : " + (this.$el)); //已被初始化
+            console.log(this.$el);
+            console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化
+            console.log("%c%s", "color:red", "message: " + this.message); //已被初始化
+        },
+        mounted() {
+            console.group('mounted 挂载结束状态===============》');
+            console.log("%c%s", "color:red", "el     : " + this.$el); //已被初始化
+            console.log(this.$el);
+            console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化
+            console.log("%c%s", "color:red", "message: " + this.message); //已被初始化
+        },
+        beforeUpdate() {
+            console.group('beforeUpdate 更新前状态===============》');
+            console.log("%c%s", "color:red", "el     : " + this.$el);
+            console.log(this.$el);
+            console.log("%c%s", "color:red", "data   : " + this.$data);
+            console.log("%c%s", "color:red", "message: " + this.message);
+        },
+        updated() {
+            console.group('updated 更新完成状态===============》');
+            console.log("%c%s", "color:red", "el     : " + this.$el);
+            console.log(this.$el);
+            console.log("%c%s", "color:red", "data   : " + this.$data);
+            console.log("%c%s", "color:red", "message: " + this.message);
+        },
+        beforeDestroy() {
+            console.group('beforeDestroy 销毁前状态===============》');
+            console.log("%c%s", "color:red", "el     : " + this.$el);
+            console.log(this.$el);
+            console.log("%c%s", "color:red", "data   : " + this.$data);
+            console.log("%c%s", "color:red", "message: " + this.message);
+        },
+        destroyed() {
+            console.group('destroyed 销毁完成状态===============》');
+            console.log("%c%s", "color:red", "el     : " + this.$el);
+            console.log(this.$el);
+            console.log("%c%s", "color:red", "data   : " + this.$data);
+            console.log("%c%s", "color:red", "message: " + this.message)
+        }
+    });
+    </script>
+</body>
+
+</html>
