@@ -3,7 +3,10 @@
  * @author wangxunxun
  */
 
+
 /* global __inline */
+
+
 
 var HoverPlayer = function($dom, opt) {
     this.opt = opt;
