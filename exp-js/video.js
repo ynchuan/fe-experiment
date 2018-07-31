@@ -13,6 +13,7 @@ var HoverPlayer = function($dom, opt) {
     this.playerTmpl = __inline('./player.tmpl');
     this.$dom = $dom;
     this.duration = opt.duration;
+
     this.init();
 };
 
