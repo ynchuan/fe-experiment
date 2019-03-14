@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>a test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit">
+    <style>
+    </style>
+</head>
+
+<body>
+    <a href="#a">a</a>
+    <a href="https://developer.mozilla.org/zh-CN/" id="a">mozilla</a>
+    <a href="https://www.html.cn/book/css/properties/user-interface/pointer-events.htm" target='_blank'>
+        pointer-events
+    </a>
+    <script>
+    // var event = new Event('click');
+    // document.getElementById('a').dispatchEvent(event)
+    // // window.open('http://baishi.baidu.com/watch/7668223979897485875.html', '岳云鹏')
+    // var events = 'touchstart touchend mousedown mouseup click'.split(' ');
+    // var n = 0;
+    // // 开启定时器，每两秒钟为a标签触发相应事件
+    // var timer = setInterval(function(){
+    //     var event = new Event(events[n]);
+    //     document.getElementById('a').dispatchEvent(event); // 触发事件。
+    //     console.log(event.type);
+    //     n++;
+    //     if (n == events.length) {
+    //         clearInterval(timer);
+    //     }
+    // },2000);
+    setTimeout(function(){
+        // window.open ("http://wxx.v.baidu.com:3000/watch/7668223979897485875.html", "newwindow", "height=100, width=100, top=0, left=0,toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no")
+        //
+        document.getElementById('new-bdvSearch').submit();
+    },1000);
+    </script>
+
+    <form action="http://baishi.baidu.com/watch/7668223979897485875.html" method="get" name="f1" id="new-bdvSearch" class="new-bdv-search" target="_blank">
+        <input type="submit" value="百度一下" id="new-bdvSearchBtn">
+
+    </form>
+</body>
+
+</html>

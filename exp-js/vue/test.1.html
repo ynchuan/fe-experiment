@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Vue 测试实例)</title>
-        <script src="./vue.js"></script>
-    </head>
-    <body>
-        <div id="app">
-            <span :all="items" v-for="item in items" :key="item" t='s' @click="haha">
-                {{item}}
-            </span>
-            {{message1}}
-        </div>
-        <script>
-           var t = new Vue({
-                el: '#app',
-                data: {
-                    message1: 'Hello Vue.js!', 
-                    message: '<h1>菜鸟教程</h1>',
-                    items:[3,4,5]
-                },
-                methods:{
-                    haha:function(){
-                        console.log('hha');
-                    }
-                }
-            });
-           t.haha=function(){
-                console.log('jfjisa');
-           }
 
-        </script>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例)</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <span :all="items" v-for="item in items" :key="item" t='s' @click="haha">
+            {{item}}
+        </span>
+        {{message1}}
+    </div>
+    <script>
+    var t = new Vue({
+        el: '#app',
+        data: {
+            message1: 'Hello Vue.js!',
+            message: '<h1>菜鸟教程</h1>',
+            items: [3, 4, 5]
+        },
+        methods: {
+            haha: function() {
+                console.log('hha');
+            }
+        }
+    });
+    t.haha = function() {
+        console.log('jfjisa');
+    }
+    </script>
+</body>
+
 </html>

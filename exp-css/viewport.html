@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test Page</title>
+    <script>
+    // var deviceWidth = parseInt(window.screen.width); //获取当前设备的屏幕宽度
+    // var deviceScale = deviceWidth / 640; //得到当前设备屏幕与640之间的比例，之后我们就可以将网页宽度固定为640px
+    // var ua = navigator.userAgent;
+    // //获取当前设备类型（安卓或苹果）
+    // if (/Android (\d+\.\d+)/.test(ua)) {
+    //     var version = parseFloat(RegExp.$1);
+    //     if (version > 2.3) {
+    //         document.write('<meta name="viewport" content="width=640,initial-scale=' + deviceScale + ', minimum-scale = ' + deviceScale + ', maximum-scale = ' + deviceScale + ', target-densitydpi=device-dpi">');
+    //     } else {
+    //         document.write('<meta name="viewport" content="width=640,initial-scale=0.75,maximum-scale=0.75,minimum-scale=0.75,target-densitydpi=device-dpi" />');
+    //     }
+    // } else {
+        // document.write('<meta name="viewport" content="width=640,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">');
+        document.write('<meta name="viewport" content="width=500, initial-scale=0.5, user-scalable=no">');
+    // }
+    </script>
+</head>
+
+<body>
+    <script>
+        var dom = document.documentElement || document.body;
+        var screen = window.screen.width;
+        document.write('document width='+ dom.offsetWidth);
+        document.write('<br>screen ='+ JSON.stringify(screen));
+        document.write('<br> devicePixelRatio='+ window.devicePixelRatio);
+        document.write('<br> navigator.userAgent='+ navigator.userAgent);
+    </script>
+    <p>
+        小结：
+        1、sreen宽度与devicePixelRatio设备像素比的乘积为手机物理像素
+        2、设备宽度（device-width）: 这个就是DIP的值，即是设备独立像素，由设备硬件本身决定；device-width一般值范围是320—432（iPhone4S 是 320， iPhone6 plus 是 414， 魅蓝 是 432）
+        3、可视区宽度（layout viewport） = 设备独立像素(visual viewport) / 缩放比；可视区宽度与viewport width比较大小决定是否出现滚动条
+        4、滚动条出现规则：
+            可视区宽度<内容宽度，出现滚动条；
+            可视区宽度>内容宽度,内容宽度=可视区宽度，不出现滚动条
+    </p>
+</body>
+
+</html>

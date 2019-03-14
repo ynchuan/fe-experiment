@@ -146,5 +146,70 @@
 		</span>
 		zx只是，span之中套span
 	</div>
+
+	<br>
+	<br>
+	<br>
+	<div class="input-wrap">
+		<style>
+			.input-wrap{
+				line-height: 100px;
+				border:1px solid #ccc;
+			}
+			.input-a{
+				line-height: 50px;
+			}
+		</style>
+		<span>xz，默认16px，高度22，16~22 18~25 20~28 1.4放大</span>
+		<input type="text" class="input-a" value='font size 默认11px inline-block'>
+		
+	</div>
+	<br>
+	<br>
+	<br>
+	<style>
+		.height-test{
+			border:1px solid ;
+			line-height: 200px;
+		}
+		.height-inner{ 
+			display:inline-block; 
+			line-height: 20px; 
+			width:20px;
+		}
+		.height-test1{
+			border:1px solid ;
+			line-height: 20px;
+			font-size:16px;
+		}
+		.height-inner1{
+			border:1px solid ;
+			line-height: 200px;
+		}
+		.height-test2{ 
+			line-height: 32px;
+			
+			margin: 100px;
+		}
+		.height-inner2{ 
+			font-size:24px;
+		}
+	</style>
+	<div class="height-test">
+		ffsfx <span class="height-inner">fsB jfks x</span>
+	</div>
+	<br>
+	<br>
+	内联元素渲染后高度（dom高度即选中阴影区域高度）与font-size及font-family相关，em-box与font-size相关
+	<br>
+	<div class="height-test1">
+		asdf<span class="height-inner1">slkx</span>
+		块级元素行高是元素行高及内联元素行高的最大值，当内联元素触发BFC时，元素最下行基线与父级基线对齐，父级行高变为除去该元素的行高最大值。
+	</div>
+
+	<div class="height-test2">
+		x<span class="height-inner2">文本</span>
+	</div>
+
 </body>
 </html>

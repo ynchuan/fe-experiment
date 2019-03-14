@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>POSTMESSAGE</title>
+    <style>
+    html,
+    body,
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+    </style>
+</head>
+
+<body>
+    <script>
+    setTimeout(function () {
+        top.postMessage({
+        	msg:'idfs'
+        }, '*');
+    }, 1000)
+
+    </script>
+</body>
+
+</html>

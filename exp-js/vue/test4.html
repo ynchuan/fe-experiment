@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例4</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h3>{{message}}</h3>
+        <h5>{{getMsgLength}}</h5>
+        <h5>{{haha.ss}}</h5>
+        <span @click="show">点击</span>
+    </div>
+    <script>
+    const instance = new Vue({
+        el: '#app',
+        data: {
+            message: "this is a test",
+            haha:{
+                ss:'sfs'
+            },
+        },
+        methods:{
+            show(){
+                this.haha= {
+                    ss:'tsg'
+                };
+            }
+        },
+        computed: {
+            getMsgLength() {
+                // let tmp = this.haha;
+                alert()
+                return this.message.length;
+            }
+        }
+    });
+
+    </script>
+</body>
+
+</html>

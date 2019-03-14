@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+    <title>display:flex</title>
+    <style>
+    body,
+    html {
+        height: 100%;
+        margin: 0;
+    }
+
+    .main {
+        display: flex;
+        height: 100%;
+
+        flex-direction: column;
+    }
+
+    .header {
+        flex-grow: 0;
+        background: green;
+    }
+
+    .body {
+        flex-grow: 1;
+        background: #ccc;
+        overflow: auto;
+    }
+
+    .body-inner {
+        height: 1500px;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">header</div>
+        <div class="body">
+            <div class="body-inner">
+                body<br>
+                body<br>
+                body<br>
+                body<br>
+                body<br>
+                body<br>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

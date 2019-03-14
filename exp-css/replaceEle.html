@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+    div>*{
+        display: block;
+    }
+</style>
+<body>
+        <div><img src="https://xiaojiaolv131.github.io/images/logo@2x.png" alt=""></div>
+        <div><input type="text"/></div>
+        <div><textarea></textarea></div>
+        <div><select name="" id=""></select></div>
+        <div><button></button></div>
+        <div><video></video></div>
+        <div><audio src="http://pcad.video.baidu.com/589690aea762c48333c43eb55cd81d94.mp3"></audio></div>
+        <div><object></object></div>
+        <div><iframe></iframe></div>
+        <p>
+            替换元素的宽度是由内部元素的大小控制，不会受display的值影响，如果想干预宽高，需要人工外部设置宽高
+            替换元素默认display样式：
+            - inline:img(0*0),video(300*150),object(300*150),iframe(300*150)
+            - none: audio(300*54)
+            - inline-block:input select textarea(136*30) button
+        </p>
+</body>
+</html>

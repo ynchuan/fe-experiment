@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>POSTMESSAGE</title>
+    <style>
+    html,
+    body,
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+    </style>
+
+</head>
+
+<body>
+    <script>
+    window._XD_H5_ACCOUNT_ = {
+        getFrame: (function () {
+            var frame;
+            return function () {
+                if (!frame) {
+                    frame = document.createElement('iframe');
+                    frame.classList.add('xd-minigame-message');
+                }
+                return frame;
+            }
+        })(),
+        fetchPage: function (append, opt) {
+            append = append ? ('&' + append) : '';
+            opt = opt || {};
+
+            var dom = document.querySelector(opt.el || 'body');
+            var src = 'http://v.baidu.com/passport/index?mode=postMsg&from=h5' + append;
+            var frame = this.getFrame(opt);
+            frame.src = src;
+            dom.appendChild(frame);
+            return frame;
+        },
+        removeFrame: function () {
+            var frame = this.getFrame();
+            frame.parentElement.removeChild(frame);
+            return frame;
+        },
+        checkLogined: function (opt) {
+            var frame = this.fetchPage('target=check', opt);
+            frame.style.display = 'none';
+        },
+        doLogin: function (opt) {
+            var frame = this.fetchPage('target=login', opt);
+            frame.style.display = 'block';
+        },
+        doLogout: function (opt) {
+            var frame = this.fetchPage('target=logout', opt);
+            frame.style.display = 'none';
+        },
+        initAccountEvent: function () {
+            var self = this;
+            window.addEventListener('message', function (e) {
+                var data = e.data || {};
+                if (data.stage === 'CHECK') {
+                    // 检查用户登录
+                    if (data.status === 1) {
+                        console.log('用户已经登录,小度uid=' + data.xduid);
+                        window.xdCheckLogined && window.xdCheckLogined(data);
+                    }
+                    else {
+                        console.log('用户未登录');
+                        window.xdCheckLoginFail && window.xdCheckLoginFail(data);
+                    }
+                }
+                else if (data.stage === 'LOGINED') {
+                    // 用户登录
+                    if (data.status === 1) {
+                        console.log('用户登录成功,小度uid=' + data.xduid);
+                        window.xdHasLogined && window.xdHasLogined(data);
+                    }
+                    else {
+                        console.log('用户登录失败');
+                        window.xdCheckLoginFailed && window.xdCheckLoginFailed(data);
+                    }
+                }
+                self.removeFrame();
+            });
+        }
+    }
+
+    </script>
+    <iframe src="http://wxx.v.baidu.com:8887/postmessage.html"></iframe>
+</body>
+
+</html>

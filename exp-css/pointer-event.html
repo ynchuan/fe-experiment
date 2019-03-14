@@ -19,5 +19,56 @@ a[href="http://example.com"] {
     <li><a href="http://example.com"><span class='test'>一个不能点击的链接</span></a></li>
     自身不能成为target，但是子元素可以冒泡使其激活。继承。
 </ul>
-</body>
+
+
+<style type="text/css">
+    #div1{
+        position: absolute;
+        height:250px;
+        width:250px;
+        background-color:#bbb;
+        top:420px;
+        left:20px;
+    }
+    #div2{
+        position: absolute;
+        height: 150px;
+        width: 150px;
+        background-color:deepskyblue;
+        top:440px;
+        left:40px;
+        pointer-events: none;
+    }
+</style>
+<div id="div1" onclick="alert('div1')"></div>
+<div id="div2" onclick="alert('div2')"></div>
+
+
+<style type="text/css">
+    #div_grandfather{
+        height : 250px;
+        background: orange;
+        width:300px;
+        border:1px solid;
+    }
+    #div_parent{
+        height:70%;
+        background-color:#bbb;
+        margin:30px;
+        border: 1px solid;
+        /*设置元素的 pointer-event属性*/
+        pointer-events: none;
+    }
+    #div_child{
+        height:70%;
+        background-color:deepskyblue;
+        margin:30px;
+    }
+</style>
+<div id="div_grandfather" onclick="alert('grandfather')">
+    <div id="div_parent" onclick="alert('parent')">
+        <div id="div_child" onclick="alert('child')">
+        </div>
+    </div>
+</div>
 </html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>全屏垂直方向三块布局</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit">
+    <style>
+    html,
+    body,
+    .contain {
+        height: 100%;
+        margin: 0;
+    }
+
+    .top {
+        height: 100px;
+        background: red;
+        position: relative;
+    }
+
+    .main {
+        height: 100%;
+        margin-top: -100px;
+        margin-bottom: -100px;
+        background: yellow;
+        overflow: auto;
+        padding: 100px 0;
+        box-sizing: border-box;
+    }
+
+    .wrap {
+        height: 10000px;
+    }
+
+    .bottom {
+        height: 100px;
+        background: green;
+        position: relative;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <div class="top"></div>
+        <div class="main">
+            <div class="wrap">
+            </div>
+        </div>
+        <div class="bottom"></div>
+    </div>
+</body>
+
+</html>
